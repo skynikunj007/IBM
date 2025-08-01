@@ -129,7 +129,7 @@ export default function ServicesPage() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 via-blue-50 to-orange-50 animate-gradient-x"></div>
 
       {/* Floating Gradient Orbs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+      <div className="absolute top-20 right-20 w-96 h-196 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400 to-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
       <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
 
@@ -149,7 +149,7 @@ export default function ServicesPage() {
         {/* Service Tabs */}
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-12 bg-white/80 backdrop-blur-lg rounded-2xl p-2 shadow-xl">
+            <TabsList className="grid w-full h-full grid-cols-2 lg:grid-cols-5 mb-12 bg-white/80 backdrop-blur-lg rounded-2xl p-2 shadow-xl">
               {serviceDetails.map((service) => {
                 const Icon = service.icon
                 return (
