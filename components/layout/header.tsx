@@ -31,14 +31,14 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-4 left-4 right-4 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-50 transition-all duration-500 ${
-        scrolled ? "top-2 sm:top-2" : "top-4 sm:top-4"
+      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
+        scrolled ? "top-2" : "top-4"
       }`}
     >
-      <div className="mx-auto max-w-full">
-        <div className="flex items-center justify-between h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl shadow-blue-500/20 px-2 sm:px-6">
+      <div className="mx-auto px-6">
+        <div className="flex items-center justify-between h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl shadow-blue-500/20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group pl-1 sm:pl-2 min-w-max">
+          <Link href="/" className="flex items-center space-x-2 group pl-2">
             <div className="relative">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg shadow-blue-500/30">
                 <Recycle className="w-4 h-4 text-white" />
@@ -47,21 +47,21 @@ export function Header() {
                 <Sparkles className="w-2 h-2 text-white p-0.5" />
               </div>
             </div>
-            <span className="text-lg font-bold bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent hidden sm:inline-block">
+            <span className="text-lg font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               RepairNet
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-1">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href}>
                 <Button
                   variant="ghost"
-                  className={`relative px-3 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 text-sm ${
+                  className={`relative px-4 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 text-sm ${
                     pathname === item.href
-                      ? "bg-white/20 text-white shadow-lg shadow-blue-500/20 backdrop-blur-sm"
-                      : "text-white/80 hover:bg-white/10 hover:text-white"
+                      ? "bg-white/20 text-blue-700 shadow-lg shadow-blue-500/20 backdrop-blur-sm"
+                      : "text-gray-700 hover:bg-white/10 hover:text-blue-600"
                   }`}
                 >
                   {item.name}
@@ -74,61 +74,58 @@ export function Header() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-3 pr-2">
+          <div className="hidden md:flex items-center space-x-3 pr-2">
             <Link href="/login">
               <Button
                 variant="ghost"
-                className="text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300 hover:scale-105 text-sm px-4 py-2"
+                className="text-gray-700 hover:text-blue-600 hover:bg-white/10 rounded-full transition-all duration-300 hover:scale-105 text-sm px-4 py-2"
               >
                 Log in
               </Button>
             </Link>
             <Link href="/signup">
-              <Button className="bg-white/20 hover:bg-white/30 text-white rounded-full px-4 py-2 text-sm shadow-lg shadow-white/20 hover:shadow-xl hover:shadow-white/30 transform hover:scale-105 transition-all duration-300">
-                <span className="relative z-10">Sign up</span>
+              <Button className="bg-gray-900 hover:bg-gray-800 text-white rounded-full px-4 py-2 text-sm shadow-lg shadow-gray-900/30 hover:shadow-xl hover:shadow-gray-900/40 transform hover:scale-105 transition-all duration-300">
+                <span className="relative z-10">Sign up for free</span>
               </Button>
             </Link>
           </div>
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
+            <SheetTrigger asChild className="md:hidden">
               <Button
                 variant="ghost"
                 size="sm"
-                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 shadow-lg transform hover:scale-110 transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm text-gray-700 hover:bg-white/20 shadow-lg transform hover:scale-110 transition-all duration-300 mr-2"
               >
                 <Menu className="w-4 h-4" />
               </Button>
             </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-64 sm:w-80 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 backdrop-blur-xl border-l border-white/20 p-4"
-            >
+            <SheetContent side="right" className="w-80 bg-white/10 backdrop-blur-xl border-l border-white/20">
               <div className="flex flex-col space-y-6 mt-8">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-base sm:text-lg font-medium text-white/80 hover:text-white transition-all duration-300 hover:translate-x-2 hover:scale-105"
+                    className="text-lg font-medium text-gray-800 hover:text-blue-600 transition-all duration-300 hover:translate-x-2 hover:scale-105"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
 
-                <div className="border-t border-white/20 pt-6 space-y-3">
+                <div className="border-t border-white/20 pt-6 space-y-4">
                   <Link href="/login">
                     <Button
                       variant="outline"
-                      className="w-full rounded-full bg-white/10 border-white/20 hover:bg-white/20 text-white transition-all duration-300 text-sm"
+                      className="w-full rounded-full bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300"
                     >
                       Log in
                     </Button>
                   </Link>
                   <Link href="/signup">
-                    <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-full shadow-lg shadow-blue-500/30 transition-all duration-300 text-sm">
-                      Sign up free
+                    <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white rounded-full shadow-lg shadow-gray-900/30 transition-all duration-300">
+                      Sign up for free
                     </Button>
                   </Link>
                 </div>
