@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "RepairNet - Circular Economy Repair Network",
   description:
     "Fix it, don't bin it! Connect with local repair heroes across India, learn DIY skills, and make a sustainable impact.",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
